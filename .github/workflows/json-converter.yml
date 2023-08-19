@@ -29,14 +29,15 @@ jobs:
 
     - name: Commit and push changes.
       run: |
-        git config user.email "actions@github.com"
-        git config user.name "GitHub Actions"
-        git checkout -b main 
-        git commit -am "Update domains.json"
-        git push origin HEAD:main
+         git config user.email "actions@github.com"
+         git config user.name "GitHub Actions"
+         git checkout main # Switch to the existing 'main' branch
+         git commit -am "Update domains.json"
+         git push origin HEAD:main
+      shell: /usr/bin/bash -e {0}
       env:
         GITHUB_TOKEN: ${{ secrets.PAT }}
-
+  
     - name: Complete
       run: echo "Script execution complete"
       
