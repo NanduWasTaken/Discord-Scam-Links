@@ -13,21 +13,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout code.
       uses: actions/checkout@v2
 
-    - name: Set up Node.js
+    - name: Set up Node.js.
       uses: actions/setup-node@v2
       with:
         node-version: 14 # Choose the appropriate Node.js version
 
-    - name: Install dependencies
+    - name: Install dependencies.
       run: npm install
 
     - name: Run the script
       run: node ./script/json.js # Replace with the actual filename
 
-    - name: Commit and push changes
+    - name: Commit and push changes.
       run: |
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
