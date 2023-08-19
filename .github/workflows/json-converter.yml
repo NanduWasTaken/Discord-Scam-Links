@@ -33,7 +33,7 @@ jobs:
         git config user.email "actions@github.com"
         git add domains.json
         git commit -m "Update domains.json"
-        git push
+        git push "https://${{ secrets.PAT }}@github.com/NanduWasTaken/Discord-Scam-Links.git" HEAD:main
 
     - name: Complete
       run: echo "Script execution complete"
