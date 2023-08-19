@@ -1,6 +1,6 @@
 # ⚠️ Discord Scam or Phishing Links
 
-A JSON list of malicious links with ![domains](https://img.shields.io/badge/dynamic/json?color=inactive&label=&query=count&url=https%3A%2F%2Fapi.schunk.dev%2Fapi%2Fdomain%2Fcount&cacheSeconds=3600) unique domains which are used for [phishing](https://en.wikipedia.org/wiki/Phishing) on [Discord](https://discord.com).
+A JSON list of malicious links with 22000+ unique domains which are used for [phishing](https://en.wikipedia.org/wiki/Phishing) on [Discord](https://discord.com).
 
 ## NPM Package
 
