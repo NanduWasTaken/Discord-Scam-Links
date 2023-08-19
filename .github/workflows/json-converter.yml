@@ -13,37 +13,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code.
-      uses: actions/checkout@v2
+      - name: Checkout code.
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js.
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14 # Choose the appropriate Node.js version
+      - name: Set up Node.js.
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14 # Choose the appropriate Node.js version
 
-    - name: Install dependencies.
-      run: npm install
+      - name: Install dependencies.
+        run: npm install
 
-    - name: Seto 1
-      run: |
-       git config user.email "actions@github.com"
-       git config user.name "GitHub Actions"
-       git checkout main
-      shell: /usr/bin/bash -e {0}
-      env:
-       GITHUB_TOKEN: ${{ secrets.PAT }}
-  
-    - name: Run the script
-      run: node ./script/json.js # Replace with the actual filename
+      - name: Configure Git
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
 
-    - name: Commit and push changes.
-      run: |
-        git add domains.json
-        git commit -m "Update domains.json"
-        git push origin HEAD:main
-      env:
-        GITHUB_TOKEN: ${{ secrets.PAT }}
-  
-    - name: Complete
-      run: echo "Script execution complete"
-      
+      - name: Run the script
+        run: node ./script/json.js # Replace with the actual filename
+
+      - name: Commit and push changes.
+        run: |
+          git add domains.json
+          git commit -m "Update domains.json"
+          git push origin HEAD:main
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+
+      - name: Completion message
+        run: echo "Script execution complete"
