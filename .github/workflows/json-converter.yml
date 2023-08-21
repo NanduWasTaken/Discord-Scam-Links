@@ -19,6 +19,8 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
+        persist-credentials: true # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+        fetch-depth: 0
         node-version: 14 # Choose the appropriate Node.js version
 
     - name: Install dependencies
@@ -29,14 +31,16 @@ jobs:
 
     - name: Commit and push changes
       run: |
-        git config user.name "Github Actions"
-        git config user.email "actions@github.com"
+        git config --local user.name "Github Action"
+        git config --local user.email "action@github.com"
         git add domains.json
-        git commit -m "Update domains.json"
-        git push origin HEAD:new-branch-name
-      env:
-         GITHUB_TOKEN: ${{ secrets.PAT }}
-         origin: https://github.com/nanduwastaken/Discord-Scam-Links
+        git commit -a -m "Generated domains.js"
 
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      continue-on-error: true
+      with:
+         github_token: ${{ secrets.PAT }}
+      
     - name: Complete
       run: echo "Script execution complete"
