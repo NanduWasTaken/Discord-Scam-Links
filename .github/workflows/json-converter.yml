@@ -35,7 +35,6 @@ jobs:
 
     - name: Push changes
       uses: ad-m/github-push-action@master
-      run: echo {{ github.ref }}
       with:
         github_token: ${{ secrets.PAT }}
         directory: "."
