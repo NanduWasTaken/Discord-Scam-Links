@@ -29,13 +29,14 @@ jobs:
 
     - name: Commit and push changes
       run: |
-        git config user.name "GitHub Actions"
+        git config user.name "Github Actions"
         git config user.email "actions@github.com"
         git add domains.json
         git commit -m "Update domains.json"
         git push origin HEAD:new-branch-name
       env:
          GITHUB_TOKEN: ${{ secrets.PAT }}
+         origin: https://github.com/nanduwastaken/Discord-Scam-Links
 
     - name: Complete
       run: echo "Script execution complete"
