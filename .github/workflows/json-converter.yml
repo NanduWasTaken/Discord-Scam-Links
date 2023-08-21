@@ -1,45 +1,41 @@
-name: Process Domains
+name: Generate Domains JSON
 
 on:
   push:
-  jobs:
-   process_domains:
-     runs-on: ubuntu-latest
+    branches:
+      - main   # Replace with your target branch name
 
-     steps:
-     - name: Checkout code
-       uses: actions/checkout@v2
- 
-     - name: Set up Node.js
-       uses: actions/setup-node@v2
-       with:
-         persist-credentials: true # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
-         fetch-depth: 0
-         token: ${{ secrets.PAT }}
-         node-version: 14 # Choose the appropriate Node.js version
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-     - name: Install dependencies
-       run: npm install
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14   # Adjust the version as needed
 
-     - name: Run the script
-       run: node script/json.js # Replace with the actual filename
-       
-     - name: Create local changes
-       run: |
-         git add domains.json
-         
-     - name: Commit and push changes
-       run: |
-         git config --local user.name "Github Action"
-         git config --local user.email "action@github.com"
-         git commit -a -m "Generated domains.js"
+    - name: Install dependencies
+      run: npm install    # If you have package.json and dependencies
 
-     - name: Push changes
-       uses: ad-m/github-push-action@master
-       continue-on-error: true
-       with:
-          github_token: ${{ secrets.PAT }}          
-          force_with_lease: true	
-          branch: main
-     - name: Complete
-       run: echo "Script execution complete"
+    - name: Generate domains.json
+      run: node sort.js   # Make sure sort.js is in the repository root
+
+    - name: Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "Github Action"
+
+    - name: Commit files
+      run: |
+        git add domains.json
+        git commit -m "Add domains.json"
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.PAT }}
+        repository: Test/test
+        force: true
