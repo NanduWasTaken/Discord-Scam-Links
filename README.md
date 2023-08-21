@@ -1,3 +1,4 @@
+# just a test for auto phisxhing detection
 # ⚠️ Discord Scam or Phishing Links
 
 A JSON list of malicious links with 22000+ unique domains which are used for [phishing](https://en.wikipedia.org/wiki/Phishing) on [Discord](https://discord.com).
