@@ -25,7 +25,7 @@ jobs:
 
     - name: Configure Git
       run: |
-        git config --local user.email {{ secrets.EMAIL }}
+        git config --local user.email "{{ secrets.EMAIL }}"
         git config --local user.name "Nandu"
 
     - name: Commit files
