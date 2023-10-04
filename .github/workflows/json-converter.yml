@@ -20,8 +20,8 @@ jobs:
     - name: Install dependencies
       run: npm install    # If you have package.json and dependencies 
 
-    - name: Install dependencies Fetch
-      run: npm install node-fetch    # If you have package.json and dependencies 
+    - name: Installing Fetch
+      run: npm install @replit/node-fetch    # If you have package.json and dependencies 
 
 
     - name: Run sort.js
