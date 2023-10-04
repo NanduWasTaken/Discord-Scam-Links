@@ -18,7 +18,11 @@ jobs:
         node-version: 14   # Adjust the version as needed
 
     - name: Install dependencies
-      run: npm install    # If you have package.json and dependencies
+      run: npm install    # If you have package.json and dependencies 
+
+    - name: Install dependencies Fetch
+      run: npm install node-fetch    # If you have package.json and dependencies 
+
 
     - name: Run sort.js
       run: node sort.js   # Make sure sort.js is in the repository root
