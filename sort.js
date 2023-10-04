@@ -4,7 +4,7 @@ const inputFile = './domain-list.txt';
 
 
 
-const fetch = require('node-fetch');
+const fetch = require('node:fetch');
 const url = 'https://raw.githubusercontent.com/nikolaischunk/discord-phishing-links/main/txt/domain-list.txt';
 const filePath = inputFile;
 
