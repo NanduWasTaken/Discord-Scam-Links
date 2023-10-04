@@ -36,5 +36,3 @@ jobs:
     - name: Push changes
       run: |
         git push origin main  # Push the changes to the main branch
-      with:
-        github_token: ${{ secrets.PAT }}
