@@ -1,5 +1,8 @@
 # Just An Simple Repo Fetching Scam Links Every One Hour.
 
+### Json file domains.json
+### Txt file domain-list.txt
+
 # Powered By Nicholaischunk 
 
 [MAIN REPO](https://github.com/nikolaischunk/discord-phishing-links)
