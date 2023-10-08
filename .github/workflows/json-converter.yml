@@ -38,6 +38,8 @@ jobs:
     - name: Commit files
       run: |
         git add domain-list.txt
+        git add fetch-number.txt
+        git add domains.json
         git commit -m "✨Fetched New Domains✨"
 
     - name: Push changes
