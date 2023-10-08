@@ -2,7 +2,7 @@
 
 # Powered By Nicholaischunk 
 
-[MAIN REPO](https://raw.githubusercontent.com/nikolaischunk/discord-phishing-links/main/txt/domain-list.txt)
+[MAIN REPO](https://github.com/nikolaischunk/discord-phishing-links/main)
 
 ## Credits:
 
