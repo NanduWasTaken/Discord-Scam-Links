@@ -49,7 +49,7 @@ fs.readFile(inputFile, 'utf8', (err, data) => {
 
 
 
-fs.readFile('fetch-info.txt', 'utf8', (err, data) => {
+fs.readFile('fetch-number.txt', 'utf8', (err, data) => {
   if (err) {
     console.error('Error reading file:', err);
     return;
@@ -58,7 +58,7 @@ fs.readFile('fetch-info.txt', 'utf8', (err, data) => {
   const currentNumber = parseInt(data, 10);
   const newNumber = currentNumber + 1;
 
-  fs.writeFile('fetch-info.txt', newNumber.toString(), 'utf8', (err) => {
+  fs.writeFile('fetch-number.txt', newNumber.toString(), 'utf8', (err) => {
     if (err) {
       console.error('Error writing file:', err);
     } else {
