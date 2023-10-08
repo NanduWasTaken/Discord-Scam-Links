@@ -30,8 +30,6 @@ jobs:
 
         const fileUrl = 'https://raw.githubusercontent.com/nikolaischunk/discord-phishing-links/main/txt/domain-list.txt';
         const targetFile = 'domain-list.txt';
-
-        async function fetchAndWriteFile() {
           try {
             const response = await fetch(fileUrl);
             const text = await response.text();
@@ -40,9 +38,6 @@ jobs:
           } catch (error) {
             console.error('Error:', error.message);
           }
-        }
-
-        fetchAndWriteFile()
 
     - name: Configure Git
       run: |
