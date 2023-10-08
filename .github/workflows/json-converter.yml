@@ -24,20 +24,7 @@ jobs:
       run: npm install @replit/node-fetch    # If you have package.json and dependencies
 
     - name: Fetch and overwrite domain-list.txt
-      run: |
-        const fetch = require('@replit/node-fetch');
-        const fs = require('fs');
-
-        const fileUrl = 'https://raw.githubusercontent.com/nikolaischunk/discord-phishing-links/main/txt/domain-list.txt';
-        const targetFile = 'domain-list.txt';
-          try {
-            const response = await fetch(fileUrl);
-            const text = await response.text();
-            fs.writeFileSync(targetFile, text);
-            console.log('File fetched and overwritten successfully.');
-          } catch (error) {
-            console.error('Error:', error.message);
-          }
+      run: node sort.js
 
     - name: Configure Git
       run: |
@@ -51,7 +38,7 @@ jobs:
     - name: Commit files
       run: |
         git add domain-list.txt
-        git commit -m "Update domain-list.txt"
+        git commit -m "✨Fetched New Domains✨"
 
     - name: Push changes
       run: |
