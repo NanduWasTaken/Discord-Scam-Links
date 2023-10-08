@@ -16,7 +16,7 @@ fetch(url)
     return response.text();
   })
   .then(data => {
-    // Write the fetched data to the pre-existing file
+    
     fs.writeFileSync(filePath, data);
 
     console.log(`File ${filePath} has been updated with the fetched content.`);
@@ -46,5 +46,24 @@ fs.readFile(inputFile, 'utf8', (err, data) => {
     console.log('Domains have been written to domains.json');
   });
 });
-      
+
+
+
+fs.readFile('fetch-info.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error reading file:', err);
+    return;
+  }
+
+  const currentNumber = parseInt(data, 10);
+  const newNumber = currentNumber + 1;
+
+  fs.writeFile('fetch-info.txt', newNumber.toString(), 'utf8', (err) => {
+    if (err) {
+      console.error('Error writing file:', err);
+    } else {
+      console.log('Number incremented and saved successfully.');
+    }
+  });
+});
 
