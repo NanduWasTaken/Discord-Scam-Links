@@ -25,7 +25,7 @@ jobs:
 
     - name: Fetch and overwrite domain-list.txt
       run: |
-        const fetch = require('node-fetch');
+        const fetch = require('@replit/node-fetch');
         const fs = require('fs');
 
         const fileUrl = 'https://raw.githubusercontent.com/nikolaischunk/discord-phishing-links/main/txt/domain-list.txt';
