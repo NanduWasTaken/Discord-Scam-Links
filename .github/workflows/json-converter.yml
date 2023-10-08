@@ -1,9 +1,8 @@
 name: Generate Domains JSON
 
 on:
-  push:
-    branches:
-      - main   # Replace with your target branch name
+  schedule:
+    - cron: '0 * * * *' # Run every hour
 
 jobs:
   build:
