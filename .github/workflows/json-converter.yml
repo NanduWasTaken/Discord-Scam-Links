@@ -3,7 +3,7 @@ name: Fetch and Update Domain List
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */12 * * *' # Run every hour
+    - cron: '0 */12 * * *' # Run every 12 hour
 
 jobs:
   fetch_and_update:
